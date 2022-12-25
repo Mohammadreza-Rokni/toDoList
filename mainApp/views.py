@@ -1,21 +1,13 @@
 from django.shortcuts import render
 from rest_framework import generics
-from .serializers import *
-from .models import *
+from .serializers import toDoSerializer
+from .models import toDo
 
 
-class ListToDo(generics.ListAPIView):               #Read
+class ListCreateToDo(generics.ListCreateAPIView):               #Read & Create
     queryset = toDo.objects.all()
     serializer_class = toDoSerializer
 
-class DetailToDo(generics.RetrieveUpdateAPIView):   #Update
-    queryset = toDo.objects.all()
-    serializer_class = toDoSerializer
-
-class CreateToDo(generics.CreateAPIView):           #Create
-    queryset = toDo.objects.all()
-    serializer_class = toDoSerializer
-
-class DeleteTodo(generics.DestroyAPIView):          #Delete  
+class UpdateDeleteToDo(generics.RetrieveUpdateDestroyAPIView):   #Update & Delete
     queryset = toDo.objects.all()
     serializer_class = toDoSerializer
