@@ -3,6 +3,6 @@ from .models import toDo
 
 class toDoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = toDo
-        fields = ('id', 'Title', 'Description', 'Date', 'Completed')
+        model = toDo # my model name
+        fields = ('id', 'Title', 'Description', 'Date', 'Completed') # give it the filds we want
         
